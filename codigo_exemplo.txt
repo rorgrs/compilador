@@ -1,0 +1,36 @@
+program ident;
+
+const identConst = 7;
+
+var ident1, ident2 : integer;
+
+procedure identProcedure (var vari1, vari2, : real, var vari3 : string);
+begin
+    print {
+        5.4 * 3 + 2, (1 * 4)
+    };
+end;
+
+begin
+
+	if 5 * 3.3 = 16.5 then
+	begin
+		ident2 := 5;
+	end
+	else
+	begin
+		ident2 := 3;
+	end;
+
+	ident1 := 9;
+
+	for ident2 := 3 + 3 to 2 * 92 do
+	begin
+		while ident1 > 2 do
+		begin
+			ident1 := ident1 - 1;
+			read(ident1);
+		end;
+	end;
+
+end.
