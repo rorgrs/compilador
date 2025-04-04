@@ -3,7 +3,10 @@ program ident;
 const identConst = 7;
 
 var ident1, ident2 : integer;
-
+!! comentario
+? c
+d
+?
 procedure identProcedure (var vari1, vari2, : real, var vari3 : string);
 begin
     print {

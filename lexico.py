@@ -61,6 +61,19 @@ class Lexico:
 
         return Palavra(Token.NINT, resultado)
 
+    # avanca ate o comentario acabar
+    def tratar_comentario(self):
+        while self.char_atual != '\n' and self.char_atual != '\r\n' and self.char_atual is not None:
+            self.avancar()
+
+    # avanca ate o comentario acabar
+    def tratar_comentario_bloco(self):
+        while self.char_atual != '?' and self.char_atual is not None:
+            self.avancar()
+        if self.char_atual != '?':
+            raise Exception("Comentário não finalizado")
+        self.avancar()
+
     # retorna a palavra reservada ou um identificador qualquer
     def tratar_identificador(self):
         resultado = ''
@@ -81,6 +94,17 @@ class Lexico:
 
             if self.char_atual == '\n' or self.char_atual == '\r\n':
                 self.pular_espacos()
+                continue
+
+            if self.char_atual == '!' and self.proximo_char() == '!':
+                self.avancar()
+                self.avancar()
+                self.tratar_comentario()
+                continue
+
+            if self.char_atual == '?':
+                self.avancar()
+                self.tratar_comentario_bloco()
                 continue
 
             if self.char_atual == '"':
